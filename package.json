@@ -28,8 +28,8 @@
     "ejs": "^1.0.0",
     "nodemailer": "0.7.1"
   },
-  "readme": "ERROR: No README data found!",
-  "_id": "sails-hook-email@0.10.0",
-  "_shasum": "f6f953de4ad391f45530fd77534056f131b23651",
-  "_from": "sails-hook-email@"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/balderdashy/sails-hook-email.git"
+  }
 }
