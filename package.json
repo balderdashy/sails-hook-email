@@ -1,0 +1,35 @@
+{
+  "name": "sails-hook-email",
+  "version": "0.10.1",
+  "description": "Email hook for Sails",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Balderdash"
+  },
+  "contributors": [
+    {
+      "name": "Cody Stoltman"
+    },
+    {
+      "name": "Mike McNeil"
+    },
+    {
+      "name": "Scott Gress"
+    }
+  ],
+  "license": "MIT",
+  "sails": {
+    "isHook": true
+  },
+  "dependencies": {
+    "ejs": "^1.0.0",
+    "nodemailer": "0.7.1"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "sails-hook-email@0.10.0",
+  "_shasum": "f6f953de4ad391f45530fd77534056f131b23651",
+  "_from": "sails-hook-email@"
+}
