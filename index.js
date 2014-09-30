@@ -34,7 +34,14 @@ module.exports = function Email (sails) {
      */
     defaults: function() {
       var obj = {};
-      self.configKey = sails.config.hooks['sails-hook-email'].configKey || 'email';
+	  
+	  try {
+	  	 self.configKey = sails.config.hooks['sails-hook-email'].configKey
+	  }
+	  catch(e){
+	  		self.configKey = "email";
+	  }
+
       obj[self.configKey] = {
         service: 'Gmail',
         auth: {
@@ -82,7 +89,7 @@ module.exports = function Email (sails) {
         try {
 
           // create reusable transport method (opens pool of SMTP connections)
-          transport = nodemailer.createTransport('SMTP',{
+          transport = nodemailer.createTransport({
             service: sails.config[self.configKey].service,
             auth: {
               user: sails.config[self.configKey].auth.user,

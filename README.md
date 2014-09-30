@@ -1,10 +1,14 @@
 # sails-hook-email
-
-Email hook for [Sails JS](http://sailsjs.org), using [Nodemailer](https://github.com/andris9/Nodemailer/blob/0.7/README.md)
+Email hook for [Sails JS](http://sailsjs.org), using [Nodemailer 1.3](https://github.com/andris9/Nodemailer)
 
 ### Installation
 
-`npm install sails-hook-email`
+`npm install sails-hook-email`  
+
+### Register The Hook
+Create an index.js file in api/hooks/email/and put the following line in it. (I don't know if this is the right way to do it but this is how I got it to work.)
+  
+`npm install sails-hook-email`  
 
 ### Usage
 
