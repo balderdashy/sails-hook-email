@@ -25,8 +25,7 @@
     "isHook": true
   },
   "dependencies": {
-    "ejs": "^1.0.0",
-    "nodemailer": "0.7.1"
+    "ejs": "^1.0.0"
   },
   "repository": {
     "type": "git",
