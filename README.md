@@ -2,6 +2,8 @@
 
 Email hook for [Sails JS](http://sailsjs.org), using [Nodemailer](https://github.com/andris9/Nodemailer/blob/0.7/README.md)
 
+*Note: This requires Sails v0.10.6+.  If v0.10.6 isn't published to NPM yet, you'll need to install it via Github.*
+
 ### Installation
 
 `npm install sails-hook-email`
