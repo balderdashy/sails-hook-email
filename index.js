@@ -34,7 +34,7 @@ module.exports = function Email (sails) {
      */
     defaults: function() {
       var obj = {};
-      self.configKey = sails.config.hooks['sails-hook-email'].configKey || 'email';
+      self.configKey = (sails.config.hooks['sails-hook-email'] && sails.config.hooks['sails-hook-email'].configKey) || 'email';
       obj[self.configKey] = {
         service: 'Gmail',
         auth: {
