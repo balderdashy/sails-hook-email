@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-email",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "description": "Email hook for Sails",
   "main": "index.js",
   "scripts": {
