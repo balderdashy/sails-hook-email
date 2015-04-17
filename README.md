@@ -50,7 +50,7 @@ Given the following **html.ejs** file contained in the folder **views/emailTempl
 executing the command with default configuration:
 
 ```
-sails.config.hooks.email(
+sails.hooks.email.send(
   "testEmail",
   {
     recipientName: "Joe",
