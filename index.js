@@ -56,6 +56,9 @@ module.exports = function Email (sails) {
         transport = {
           sendMail: function(options, cb) {
 
+            // Add sent timestamp
+            options.sentAt = new Date();
+
             // First check the .tmp directory exists
             fs.exists(path.join(sails.config.appPath, '.tmp'), function(status) {
               if(!status) {
