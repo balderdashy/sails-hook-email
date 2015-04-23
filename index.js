@@ -36,11 +36,6 @@ module.exports = function Email (sails) {
       var obj = {};
       self.configKey = (sails.config.hooks['sails-hook-email'] && sails.config.hooks['sails-hook-email'].configKey) || 'email';
       obj[self.configKey] = {
-        service: 'Gmail',
-        auth: {
-          user: 'myemailaddress@gmail.com',
-          pass: 'mypassword'
-        },
         templateDir: path.join(__dirname, '../../views/emailTemplates'),
         from: 'noreply@login.com',
         testMode: true
@@ -82,13 +77,7 @@ module.exports = function Email (sails) {
         try {
 
           // create reusable transport method (opens pool of SMTP connections)
-          transport = nodemailer.createTransport('SMTP',{
-            service: sails.config[self.configKey].service,
-            auth: {
-              user: sails.config[self.configKey].auth.user,
-              pass: sails.config[self.configKey].auth.pass
-            }
-          });
+          transport = nodemailer.createTransport(sails.config[self.configKey]);
 
           return cb();
         }
