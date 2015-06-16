@@ -88,10 +88,7 @@ module.exports = function Email (sails) {
             var smtpPool = require('nodemailer-smtp-pool');
             transport = nodemailer.createTransport(smtpPool({
               service: sails.config[self.configKey].service,
-              auth: {
-                user: sails.config[self.configKey].auth.user,
-                pass: sails.config[self.configKey].auth.pass
-              }
+              auth: sails.config[self.configKey].auth
             }));
           }
 
