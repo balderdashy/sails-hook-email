@@ -30,7 +30,7 @@ global | ((string)) | Global variable for exporting the mail send method.  If fa
 service        | ((string)) | A "well-known service" that Nodemailer knows how to communicate with (see [this list of services](https://github.com/andris9/nodemailer-wellknown/blob/v0.1.5/README.md#supported-services))
 auth | ((object)) | Authentication object as `{user:"...", pass:"..."}`
 transporter | ((object)) | Custom transporter passed directly to nodemailer.createTransport (overrides service/auth) (see [Available Transports](https://github.com/andris9/Nodemailer/blob/v1.3.4/README.md#available-transports))
-templateDir | ((string)) | Path to view templates relative to `views` (defaults to `emailTemplates`)
+templateDir | ((string)) | Path to email view templates relative to sails `views` directory (defaults to `emailTemplates`)
 from | ((string)) | Default `from` email address
 testMode | ((boolean)) | Flag indicating whether the hook is in "test mode".  In test mode, email options and contents are written to a `.tmp/email.txt` file instead of being actually sent.  Defaults to `true`.
 alwaysSendTo | ((string)) | If set, all emails will be sent to this address regardless of the `to` option specified.  Good for testing live emails without worrying about accidentally spamming people.
