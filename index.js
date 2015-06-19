@@ -67,8 +67,12 @@ module.exports = function Email(sails) {
         templateDir: path.resolve(sails.config.appPath, 'views/emailTemplates'),
         from: 'noreply@hydra.com',
         testMode: true
-      };
-      return obj;
+      }
+    },
+
+    configure: function () {
+      // Ensure we have the full path, relative to app directory
+      sails.config[this.configKey].templateDir = path.resolve(sails.config.appPath, sails.config[this.configKey].templateDir);
     },
 
 
