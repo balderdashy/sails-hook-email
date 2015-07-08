@@ -48,7 +48,7 @@ Given the following **html.ejs** file contained in the folder **views/emailTempl
 <p>Love,<br/><%=senderName%></p>
 ```
 
-executing the command with default configuration:
+executing the following command (after [configuring for your email service](https://github.com/balderdashy/sails-hook-email/#configuration) and turning off test mode) :
 
 ```
 sails.hooks.email.send(
