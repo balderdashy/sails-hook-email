@@ -50,7 +50,7 @@ module.exports = function Email(sails) {
         return cb(e);
       }
     });
-  }
+  };
 
   return {
 
@@ -163,7 +163,7 @@ module.exports = function Email(sails) {
 
             // Grab the HTML version of the email template
             compileHtmlTemplate: function (next) {
-              compileTemplate(templatePath + "/html", data, next)
+              compileTemplate(templatePath + "/html", data, next);
             },
 
             // Grab the Text version of the email template
@@ -172,8 +172,8 @@ module.exports = function Email(sails) {
                 // Don't exit out if there is an error, we can generate plaintext
                 // from the HTML version of the template.
                 if (err) return next();
-                next(null, html)
-              })
+                next(null, html);
+              });
             },
 
             // Send the email
