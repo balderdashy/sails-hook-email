@@ -7,7 +7,8 @@ var htmlToText = require('nodemailer-html-to-text').htmlToText;
 var ejs = require('ejs');
 var fs = require('fs');
 var path = require('path');
-
+var async = require('async');
+var _ = require('lodash');
 
 /**
  * Email Hook
