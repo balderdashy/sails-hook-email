@@ -35,6 +35,19 @@ from | ((string)) | Default `from` email address
 testMode | ((boolean)) | Flag indicating whether the hook is in "test mode".  In test mode, email options and contents are written to a `.tmp/email.txt` file instead of being actually sent.  Defaults to `true`.
 alwaysSendTo | ((string)) | If set, all emails will be sent to this address regardless of the `to` option specified.  Good for testing live emails without worrying about accidentally spamming people.
 
+#### Example
+
+```javascript
+// [your-sails-app]/config/email.js
+module.exports.email = {
+  service: 'Gmail',
+  auth: {user: 'foobar@gmail.com', pass: 'emailpassword'},
+  testMode: true
+};
+
+```
+
+
 ### Templates
 
 Templates are generated using your configured Sails [View Engine](http://sailsjs.org/#!/documentation/concepts/Views/ViewEngines.html), allowing for multiple template engines and layouts.  If Sails Views are disabled, will fallback to EJS templates. To define a new email template, create a new folder with the template name inside your `templateDir` directory, and add an **html.ejs** file inside the folder (substituting .ejs for your template engine).  You may also add an optional `text.ejs` file; if none is provided, Nodemailer will attempt to create a text version of the email based on the html version.
