@@ -137,15 +137,16 @@ module.exports = function Email(sails) {
 
     /**
      * Send an email.
-     * @param  {Sting}    template (a named template to render)
-     * @param  {Object}   data (data to pass into the template)
-     * @param  {Object}   options (email options including to, from, etc)
-     * @param  {Function} cb
+     *
+     * @param  {Sting}      template (a named template to render)
+     * @param  {Object}     data (data to pass into the template)
+     * @param  {Object}     options (email options including to, from, etc)
+     * @param  {Function?}  cb
      */
-
     send: function (template, data, options, cb) {
 
       data = data || {};
+      cb = cb || defaultCb;
       // Turn off layouts by default
       if (typeof data.layout === 'undefined') data.layout = false;
 
@@ -205,3 +206,19 @@ module.exports = function Email(sails) {
 
   };
 };
+
+/**
+ * Default send callback
+ *
+ * If user does not provide their own callback, we will use this one as a fallback
+ *
+ * @param  {Error}    err         Instance of Error object (if any)
+ * @param  {Object}   sendEmail   Information about the email just sent
+ * @return {void}
+ */
+function defaultCb (err, sendEmail) {
+
+  if (err) {
+    sails.log.error('Failed to send email:', err)
+  }
+}

@@ -19,7 +19,7 @@ Parameter      | Type                | Details
 template       | ((string))          | Relative path from `templateDir` (see "Configuration" below) to a folder containing email templates.
 data           | ((object))          | Data to use to replace template tokens
 options        | ((object))          | Email sending options (see [Nodemailer docs](https://github.com/andris9/Nodemailer/blob/v1.3.4/README.md#e-mail-message-fields))
-cb             | ((function))        | Callback to be run after the email sends (or if an error occurs).
+cb             | ((function))        | Callback to be run after the email sends (or if an error occurs). Optional.
 
 ### Configuration
 
