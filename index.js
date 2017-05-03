@@ -114,7 +114,12 @@ module.exports = function Email(sails) {
         try {
           if (sails.config[self.configKey].transporter) {
             // If custom transporter is set, use that first
-            transport = nodemailer.createTransport(sails.config[self.configKey].transporter);
+            if (sails.config[self.configKey].transporter.toUpperCase() == 'SENDGRID') { // SendGrid Support
+              var sgTransport = require('nodemailer-sendgrid-transport');
+              transport = nodemailer.createTransport(sgTransport({auth:sails.config[self.configKey].auth}));
+            } else {
+              transport = nodemailer.createTransport(sails.config[self.configKey].transporter);
+            }
           } else {
             // create reusable transport method (opens pool of SMTP connections)
             var smtpPool = require('nodemailer-smtp-pool');
