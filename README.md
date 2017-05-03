@@ -47,6 +47,20 @@ module.exports.email = {
 
 ```
 
+#### Example SendGrid
+
+```javascript
+// [your-sails-app]/config/email.js
+module.exports.email = {
+  transporter: 'sendgrid',
+  auth: {
+    api_key : 'PASTE_YOUR_API_KEY_HERE' // Generate you api key in https://app.sendgrid.com/settings/api_keys
+  },
+  testMode: false
+};
+
+```
+
 
 ### Templates
 
