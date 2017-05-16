@@ -22,6 +22,11 @@ options        | ((object))          | Email sending options (see [Nodemailer do
 cb             | ((function))        | Callback to be run after the email sends (or if an error occurs).
 
 ### Configuration
+Create the Hook
+
+Create the following folder and file underneath your project `api/hooks/email/index.js`
+Below are the contents you should save in the index.js file
+`module.exports = require('sails-hook-email');`
 
 By default, configuration lives in `sails.config.email`.  The configuration key (`email`) can be changed by setting `sails.config.hooks['sails-hook-email'].configKey`.
 
