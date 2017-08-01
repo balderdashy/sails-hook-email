@@ -42,6 +42,7 @@ alwaysSendTo | ((string)) | If set, all emails will be sent to this address rega
 module.exports.email = {
   service: 'Gmail',
   auth: {user: 'foobar@gmail.com', pass: 'emailpassword'},
+  port: '2525' //Need to configure this if hosting on google instance.
   testMode: true
 };
 
