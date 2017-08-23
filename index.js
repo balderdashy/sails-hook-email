@@ -177,7 +177,7 @@ module.exports = function Email(sails) {
             },
 
             // Send the email
-            sendEmail: ['compileHtmlTemplate', 'compileTextTemplate', function (next, results) {
+            sendEmail: ['compileHtmlTemplate', 'compileTextTemplate', function (results, next) {
 
               defaultOptions.html = results.compileHtmlTemplate;
               if (results.compileTextTemplate) defaultOptions.text = results.compileTextTemplate;
