@@ -9,6 +9,7 @@ var fs = require('fs');
 var path = require('path');
 var async = require('async');
 var _ = require('lodash');
+var inlineCss = require('inline-css');
 
 /**
  * Email Hook
@@ -161,46 +162,52 @@ module.exports = function Email(sails) {
 
       async.auto({
 
-            // Grab the HTML version of the email template
-            compileHtmlTemplate: function (next) {
-              compileTemplate(templatePath + "/html", data, next);
-            },
-
-            // Grab the Text version of the email template
-            compileTextTemplate: function (next) {
-              compileTemplate(templatePath + "/text", data, function (err, html) {
-                // Don't exit out if there is an error, we can generate plaintext
-                // from the HTML version of the template.
-                if (err) return next();
-                next(null, html);
-              });
-            },
-
-            // Send the email
-            sendEmail: ['compileHtmlTemplate', 'compileTextTemplate', function (next, results) {
-
-              defaultOptions.html = results.compileHtmlTemplate;
-              if (results.compileTextTemplate) defaultOptions.text = results.compileTextTemplate;
-
-              // `options`, e.g.
-              // {
-              //   to: 'somebody@example.com',
-              //   from: 'other@example.com',
-              //   subject: 'Hello World'
-              // }
-              var mailOptions = _.defaults(options, defaultOptions);
-              mailOptions.to = sails.config[self.configKey].alwaysSendTo || mailOptions.to;
-
-              transport.sendMail(mailOptions, next);
-            }]
-
-          },
-
-          // ASYNC callback
-          function (err, results) {
-            if (err) return cb(err);
-            cb(null, results.sendEmail);
+        // Grab the HTML version of the email template
+        compileHtmlTemplate: function (next) {
+          compileTemplate(templatePath + "/html", data, function (err, html) {
+            if (err) next(err);
+            // make CSS inline
+            inlineCss(html, { url: ' ' }).then(function (inlineHtml) {
+              next(null, inlineHtml);
+            });
           });
+        },
+
+        // Grab the Text version of the email template
+        compileTextTemplate: function (next) {
+          compileTemplate(templatePath + "/text", data, function (err, html) {
+            // Don't exit out if there is an error, we can generate plaintext
+            // from the HTML version of the template.
+            if (err) return next();
+            next(null, html);
+          });
+        },
+
+        // Send the email
+        sendEmail: ['compileHtmlTemplate', 'compileTextTemplate', function (results, next) {
+
+          defaultOptions.html = results.compileHtmlTemplate;
+          if (results.compileTextTemplate) defaultOptions.text = results.compileTextTemplate;
+
+          // `options`, e.g.
+          // {
+          //   to: 'somebody@example.com',
+          //   from: 'other@example.com',
+          //   subject: 'Hello World'
+          // }
+          var mailOptions = _.defaults(options, defaultOptions);
+          mailOptions.to = sails.config[self.configKey].alwaysSendTo || mailOptions.to;
+
+          transport.sendMail(mailOptions, next);
+        }]
+
+      },
+
+        // ASYNC callback
+        function (err, results) {
+          if (err) return cb(err);
+          cb(null, results.sendEmail);
+        });
     }
 
   };

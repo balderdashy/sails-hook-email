@@ -1,6 +1,6 @@
 # sails-hook-email
 
-[![Dependency Status](https://david-dm.org/balderdashy/sails-hook-email.svg)](https://david-dm.org/balderdashy/sails-hook-email)
+[![Dependency Status](https://david-dm.org/yohanesgultom/sails-hook-email.svg)](https://david-dm.org/yohanesgultom/sails-hook-email)
 
 Email hook for [Sails JS](http://sailsjs.org), using [Nodemailer](https://github.com/andris9/Nodemailer/blob/v1.3.4/README.md)
 
