@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "ejs": "^2.3.1",
+    "inline-css": "^2.2.2",    
     "nodemailer": "^4.0.1",
     "nodemailer-html-to-text": "^2.1.0",
     "nodemailer-smtp-pool": "^2.8.3",
