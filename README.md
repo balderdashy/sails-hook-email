@@ -1,5 +1,17 @@
 # sails-hook-email
 
+> ### There are no immediate updates planned for this hook for Sails v1.0 and beyond.
+>
+> Feel free to continue to use this hook in existing projects, as-is, as long as it's doing the job for you.
+> Just note that it's no longer the approach the Sails core team uses for new apps.
+> Instead, we are now recommending the approach for sending emails that is bundled as part of `sails new`.
+>
+> To try that out, run `sails new foo --caviar`.
+>
+> _If you're unsure or need advice, visit https://sailsjs.com/support._
+
+
+
 [![Dependency Status](https://david-dm.org/balderdashy/sails-hook-email.svg)](https://david-dm.org/balderdashy/sails-hook-email)
 
 Email hook for [Sails JS](http://sailsjs.org), using [Nodemailer](https://github.com/andris9/Nodemailer/blob/v1.3.4/README.md)
