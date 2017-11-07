@@ -4,9 +4,9 @@
 >
 > Feel free to continue to use this hook in existing projects, as-is, as long as it's doing the job for you.
 > Just note that it's no longer the approach the Sails core team uses for new apps.
-> Instead, we are now recommending the approach for sending emails that is bundled as part of `sails new`.
+> Instead, we are now recommending the approach for sending emails that is bundled as part of `sails new` in Sails v1.
 >
-> To try that out, run `sails new foo --caviar`.
+> To try that out, run `sails new foo --caviar` using Sails >= v1.0 and Node <= v7.9.
 >
 > _If you're unsure or need advice, visit https://sailsjs.com/support._
 
