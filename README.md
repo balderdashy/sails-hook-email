@@ -1,6 +1,6 @@
 # sails-hook-email
 
-> ### There are no immediate updates planned for this hook for Sails v1.0 and beyond.
+> ### There are no updates planned for this hook for Sails v1.0 and beyond.
 >
 > Feel free to continue to use this hook in existing projects, as-is, as long as it's doing the job for you.
 > Just note that it's no longer the approach the Sails core team uses for new apps.
