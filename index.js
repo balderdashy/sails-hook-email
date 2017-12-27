@@ -118,10 +118,18 @@ module.exports = function Email(sails) {
           } else {
             // create reusable transport method (opens pool of SMTP connections)
             var smtpPool = require('nodemailer-smtp-pool');
-            transport = nodemailer.createTransport(smtpPool({
-              service: sails.config[self.configKey].service,
-              auth: sails.config[self.configKey].auth
-            }));
+            if (sails.config[self.configKey].port) {
+              transport = nodemailer.createTransport(smtpPool({
+                service: sails.config[self.configKey].service,
+                auth: sails.config[self.configKey].auth,
+                port: sails.config[self.configKey].port
+              }));
+            } else {
+              transport = nodemailer.createTransport(smtpPool({
+                service: sails.config[self.configKey].service,
+                auth: sails.config[self.configKey].auth
+              }));
+            }
           }
 
           // Auto generate text
