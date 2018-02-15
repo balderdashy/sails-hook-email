@@ -35,29 +35,30 @@ cb             | ((function))        | Callback to be run after the email sends 
 
 ### Configuration
 
-By default, configuration lives in `sails.config.email`.  The configuration key (`email`) can be changed by setting `sails.config.hooks['sails-hook-email'].configKey`.
-
-Parameter      | Type                | Details
--------------- | ------------------- |:---------------------------------
-service        | ((string)) | A "well-known service" that Nodemailer knows how to communicate with (see [this list of services](https://github.com/andris9/nodemailer-wellknown/blob/v0.1.5/README.md#supported-services))
-auth | ((object)) | Authentication object as `{user:"...", pass:"..."}`
-transporter | ((object)) | Custom transporter passed directly to nodemailer.createTransport (overrides service/auth) (see [Available Transports](https://github.com/andris9/Nodemailer/blob/v1.3.4/README.md#available-transports))
-templateDir | ((string)) | Path to view templates relative to `sails.config.appPath` (defaults to `views/emailTemplates`)
-from | ((string)) | Default `from` email address
-testMode | ((boolean)) | Flag indicating whether the hook is in "test mode".  In test mode, email options and contents are written to a `.tmp/email.txt` file instead of being actually sent.  Defaults to `true`.
-alwaysSendTo | ((string)) | If set, all emails will be sent to this address regardless of the `to` option specified.  Good for testing live emails without worrying about accidentally spamming people.
-
-#### Example
+To configure this hook in your Sails app, use [`sails.config.email`](http://sailsjs.org/documentation/concepts/extending-sails/hooks/using-hooks#?configuring-a-hook).  For example, create `config/email.js`:
 
 ```javascript
-// [your-sails-app]/config/email.js
+// config/email.js
 module.exports.email = {
   service: 'Gmail',
-  auth: {user: 'foobar@gmail.com', pass: 'emailpassword'},
+  auth: { user: 'foobar@gmail.com', pass: 'emailpassword' },
   testMode: true
 };
 
 ```
+
+The following options are available:
+
+Property       | Type                | Details
+-------------- | ------------------- |:---------------------------------
+service        | ((string)) | A "well-known service" that Nodemailer knows how to communicate with (see [this list of services](https://github.com/andris9/nodemailer-wellknown/blob/v0.1.5/README.md#supported-services))
+auth | ((object)) | Authentication object as `{user:"...", pass:"..."}`
+transporter | ((object)) | Custom transporter passed directly to nodemailer.createTransport (overrides service/auth) (see [Available Transports](https://github.com/andris9/Nodemailer/blob/v1.3.4/README.md#available-transports))
+templateDir | ((string)) | Path to view templates, relative to `sails.config.appPath` (defaults to `views/emailTemplates`)
+from | ((string)) | Default `from` email address
+testMode | ((boolean)) | Flag indicating whether the hook is in "test mode".  In test mode, email options and contents are written to a `.tmp/email.txt` file instead of being actually sent.  Defaults to `true`.
+alwaysSendTo | ((string)) | If set, all emails will be sent to this address regardless of the `to` option specified.  Good for testing live emails without worrying about accidentally spamming people.
+
 
 
 ### Templates
